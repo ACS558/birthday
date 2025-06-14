@@ -1,36 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import Confetti from "react-confetti";
+import { useWindowSize } from "@react-hook/window-size";
 import "./App.css";
 
 function App() {
-  const [showWish, setShowWish] = useState(false);
+  const [width, height] = useWindowSize();
 
   return (
-    <div className="app">
-      <div className="container">
-        <h1 className="title">🎂 Happy Birthday! 🎈</h1>
-        <p className="subtitle">To my sweetest friend 💕</p>
-
-        {!showWish ? (
-          <button className="btn" onClick={() => setShowWish(true)}>
-            Click here for your surprise! 🎁
-          </button>
-        ) : (
-          <div className="wish-card">
-            <p>Assalamualaikum Syed,</p>
-            <p>
-              On your special day, I just want to say how incredibly lucky I am
-              to have you in my life. You bring joy, light, and laughter to
-              everyone around you. ✨
-            </p>
-            <p>
-              May this year bring you as much happiness and love as you bring to
-              others. Stay the amazing person you are!
-            </p>
-            <h2>🎉 Happy Birthday once again! 🎉</h2>
-            <p>— From your forever friend 💝</p>
-          </div>
-        )}
-      </div>
+    <div className="container">
+      <Confetti width={width} height={height} />
+      <div className="gift-box"></div>
+      <h1 className="title">🎉 Happy Birthday Bestie! 🎂</h1>
+      <p className="message">
+        Assalamualaikum <strong>Syed</strong>,<br />
+        On this special day, I just want you to know how much you mean to me. 💖
+        <br />
+        You're more than a friend — you're my sister by heart. 💫
+        <br />
+        Wishing you joy, love, and endless smiles today and always! 🥳
+        <br />
+        Let's celebrate YOU! 🎈🎁
+      </p>
+      <p className="footer">— With love, Your Forever Best Friend ❤️</p>
     </div>
   );
 }
