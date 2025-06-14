@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "@react-hook/window-size";
 import "./App.css";
@@ -7,17 +7,27 @@ import { Fireworks } from "fireworks-js";
 
 function App() {
   const [showWish, setShowWish] = useState(false);
+  const [showDecorations, setShowDecorations] = useState(false); // NEW state
+
   const audioRef = useRef(null);
   const fwRef = useRef(null);
   const [width, height] = useWindowSize();
 
   const handleBoxClick = () => {
     setShowWish(true);
-    audioRef.current.play();
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
 
-    const container = fwRef.current;
-    if (container) {
-      const fireworks = new Fireworks(container, {
+    // Start decorations *after* 7 seconds
+    setTimeout(() => {
+      setShowDecorations(true);
+    }, 7000); // delay must match fireworks duration
+  };
+
+  useEffect(() => {
+    if (showWish && fwRef.current) {
+      const fireworks = new Fireworks(fwRef.current, {
         hue: { min: 0, max: 360 },
         delay: { min: 15, max: 30 },
         speed: 2,
@@ -32,12 +42,12 @@ function App() {
       });
       fireworks.start();
     }
-  };
+  }, [showWish]);
 
   return (
     <div className="container">
-      {showWish && <Confetti width={width} height={height} />}
-      <audio ref={audioRef} src="/happy-birthday.mp3" />
+      {showDecorations && <Confetti width={width} height={height} />}
+      <audio ref={audioRef} src="/bi_saraha.mp3" />
 
       {!showWish ? (
         <div className="gift-box" onClick={handleBoxClick}></div>
@@ -49,7 +59,7 @@ function App() {
             <h1>
               <Typewriter
                 words={[
-                  "🎉 Happy Birthday Bestie! 🎂",
+                  "🎉 Happy Birthday Best! 🎂",
                   "You’re amazing 💖",
                   "Let’s celebrate YOU! 🎈",
                 ]}
@@ -61,7 +71,7 @@ function App() {
                 delaySpeed={1500}
               />
             </h1>
-            <p>
+            <p className="footer">
               Assalamualaikum <strong>Syed</strong>,<br />
               May your day sparkle with joy and your heart overflow with love.
               💖
@@ -76,7 +86,7 @@ function App() {
       )}
 
       {/* Decorative hearts/stars */}
-      {showWish && (
+      {showDecorations && (
         <>
           <div className="floating heart"></div>
           <div className="floating star"></div>
