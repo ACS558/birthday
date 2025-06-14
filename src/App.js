@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="container">
       {showDecorations && <Confetti width={width} height={height} />}
-      <audio ref={audioRef} src="/bi_saraha.mp3" preload="auto" />
+      <audio ref={audioRef} src="/bi-saraha.mp3" preload="auto" />
 
       {!showWish ? (
         <div className="gift-box" onClick={handleBoxClick}></div>
