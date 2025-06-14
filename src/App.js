@@ -49,7 +49,10 @@ function App() {
   return (
     <div className="container">
       {showDecorations && <Confetti width={width} height={height} />}
-      <audio ref={audioRef} src="/bi-saraha.mp3" preload="auto" />
+      <audio ref={audioRef} preload="auto">
+        <source src="/bi-saraha.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
 
       {!showWish ? (
         <div className="gift-box" onClick={handleBoxClick}></div>
