@@ -16,7 +16,9 @@ function App() {
   const handleBoxClick = () => {
     setShowWish(true);
     if (audioRef.current) {
-      audioRef.current.play();
+      audioRef.current.play().catch((error) => {
+        console.error("Audio play error:", error);
+      });
     }
 
     // Start decorations *after* 7 seconds
