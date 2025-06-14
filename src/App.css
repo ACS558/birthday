@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
   background: linear-gradient(to top right, #ffe6f0, #fff0f5);
+  overflow-x: hidden;
 }
 
 .container {
@@ -14,36 +15,20 @@ body {
   align-items: center;
 }
 
-.title {
-  font-size: 3rem;
-  color: #d63384;
-  margin-top: 1rem;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.message {
-  font-size: 1.25rem;
-  color: #333;
-  max-width: 600px;
-  margin-top: 1.5rem;
-  animation: fadeIn 3s ease-in;
-}
-
-.footer {
-  margin-top: 2rem;
-  font-style: italic;
-  color: #c2185b;
-  animation: fadeIn 4s ease-in;
-}
-
 .gift-box {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: #ff69b4;
   position: relative;
   border-radius: 12px;
-  animation: bounce 1.2s infinite;
+  cursor: pointer;
+  animation: bounce 1s infinite;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.gift-box:hover {
+  transform: scale(1.1);
 }
 
 .gift-box::before,
@@ -73,8 +58,29 @@ body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
+}
+
+.wish-message h1 {
+  font-size: 3rem;
+  color: #d63384;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.wish-message p {
+  font-size: 1.25rem;
+  color: #333;
+  max-width: 600px;
+  margin: 1rem auto;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+.footer {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #c2185b;
+  animation: fadeIn 3s ease-in;
 }
 
 @keyframes fadeIn {
@@ -85,5 +91,54 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Floating decorations */
+.floating {
+  position: absolute;
+  animation: floatDown 5s linear infinite;
+  opacity: 0.6;
+}
+
+.heart {
+  top: -50px;
+  left: 20%;
+  font-size: 2rem;
+  color: red;
+  content: "❤️";
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://twemoji.maxcdn.com/v/14.0.2/72x72/2764.png");
+  background-size: cover;
+}
+
+.star {
+  top: -60px;
+  left: 70%;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://twemoji.maxcdn.com/v/14.0.2/72x72/2b50.png");
+  background-size: cover;
+}
+
+.heart.two {
+  top: -40px;
+  left: 45%;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://twemoji.maxcdn.com/v/14.0.2/72x72/2764.png");
+  background-size: cover;
+}
+
+@keyframes floatDown {
+  from {
+    top: -60px;
+    opacity: 0.8;
+  }
+  to {
+    top: 100vh;
+    opacity: 0;
   }
 }
