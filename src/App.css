@@ -1,38 +1,59 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #ffe0ec, #ffe7f9);
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+.app {
   text-align: center;
+  padding-top: 5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  background: white;
+  padding: 3rem;
+  margin: auto;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+  font-size: 3rem;
+  color: #ff69b4;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.subtitle {
+  font-size: 1.2rem;
+  color: #aa336a;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: #ff69b4;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
   color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  background: #ff1493;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wish-card {
+  background: #fff0f5;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.2);
+  color: #8b008b;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-top: 2rem;
 }
