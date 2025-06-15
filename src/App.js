@@ -50,7 +50,7 @@ function App() {
     <div className="container">
       {showDecorations && <Confetti width={width} height={height} />}
       <audio ref={audioRef} preload="auto">
-        <source src="/bi-saraha.mp3" type="audio/mpeg" />
+        <source src="/bi-saraha.MP3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
 
