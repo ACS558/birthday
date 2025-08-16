@@ -81,11 +81,9 @@ function App() {
               May your day sparkle with joy and your heart overflow with love.
               💖
               <br />
-              You're not just my best – you're a true blessing in my life! 🌸
-              <br />
               Cheers to laughter, cake, and unforgettable memories! 🎈🥳
             </p>
-            <p className="footer">— With love, your forever best ❤️</p>
+            <p className="footer">— With love, your Buddy</p>
           </div>
         </>
       )}
