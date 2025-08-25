@@ -7,7 +7,7 @@ import { Fireworks } from "fireworks-js";
 
 function App() {
   const [showWish, setShowWish] = useState(false);
-  const [showDecorations, setShowDecorations] = useState(false); // NEW state
+  const [showDecorations, setShowDecorations] = useState(false);
 
   const audioRef = useRef(null);
   const fwRef = useRef(null);
@@ -21,10 +21,10 @@ function App() {
       });
     }
 
-    // Start decorations *after* 7 seconds
+    // Start decorations after 7 seconds
     setTimeout(() => {
       setShowDecorations(true);
-    }, 7000); // delay must match fireworks duration
+    }, 7000);
   };
 
   useEffect(() => {
@@ -55,7 +55,11 @@ function App() {
       </audio>
 
       {!showWish ? (
-        <div className="gift-box" onClick={handleBoxClick}></div>
+        <div className="gift-section">
+          {/* 👇 Finger Hint */}
+          <div className="click-hint">👇</div>
+          <div className="gift-box" onClick={handleBoxClick}></div>
+        </div>
       ) : (
         <>
           <div ref={fwRef} className="fireworks-canvas"></div>

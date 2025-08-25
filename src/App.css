@@ -52,6 +52,7 @@ body {
   width: 100%;
 }
 
+/* Bouncing animation (for box and hint) */
 @keyframes bounce {
   0%,
   100% {
@@ -60,6 +61,23 @@ body {
   50% {
     transform: translateY(-15px);
   }
+}
+
+/* 👇 Finger Hint */
+.click-hint {
+  font-size: 3rem;
+  animation: bounce 1s infinite;
+  margin-bottom: 15px;
+  color: #d63384;
+}
+
+/* Optional text with hint */
+.click-hint-text {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #d63384;
+  margin-bottom: 5px;
+  animation: fadeIn 2s ease-in-out infinite alternate;
 }
 
 .wish-message h1 {
@@ -143,6 +161,7 @@ body {
     opacity: 0;
   }
 }
+
 .fireworks-canvas {
   position: fixed;
   top: 0;
